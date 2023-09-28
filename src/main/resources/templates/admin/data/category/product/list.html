@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head th:replace="~{admin/commons::head}"></head>
+<body class="hold-transition sidebar-mini">
+<div class="wrapper">
+
+    <!-- Navbar -->
+    <div th:replace="~{admin/commons::header}"></div>
+    <!-- /.navbar -->
+
+    <!-- Main Sidebar Container -->
+    <aside th:replace="~{admin/commons::aside}"></aside>
+
+    <!-- Content Wrapper. Contains page content -->
+    <!-- /.content-wrapper -->
+    <div class="content-wrapper pt-2">
+        <div class="container">
+            <h3 class="text-center">Product List</h3>
+            <a name="" class="btn btn-primary" th:href="@{/admin/data/product/add}" role="button">Add product</a>
+            <table class="table table-bordered table-inverse mt-3">
+                <thead class="thead-inverse">
+                <thead class="thead-inverse mt-3 ">
+                <tr>
+                    <th>ID</th>
+                    <th>DESCRIPTION</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="item: ${products}">
+                    <td scope="row" th:text="${item.productId}"></td>
+                    <td th:utext="${item.description}"></td>
+                    <td>
+                        <a name="" id="" class="btn btn-primary" href="#"
+                           role="button">
+                            <i class="fa fa-pen" aria-hidden="true"></i>
+                        </a>
+                        <button type="button" class="btn btn-danger" data-toggle="modal">
+                            <i class="fa fa-trash" aria-hidden="true"></i>
+                        </button>
+
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <footer th:replace="~{admin/commons::footer}"></footer>
+</div>
+
+<!-- Main Footer -->
+</div>
+<th:block th:replace="~{admin/commons::scripts}"></th:block>
+</body>
+</html>
